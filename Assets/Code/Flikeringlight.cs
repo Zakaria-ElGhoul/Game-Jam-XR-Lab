@@ -4,21 +4,31 @@ using UnityEngine;
 
 public class Flikeringlight : MonoBehaviour
 {
-    [Header("Flashlight Size")]
+    [Header("Flashlight Settings")]
     [Range(0f, 10.0f)]
     public float flashSize;
 
+    public bool flikering;
+
     private float length;
+
+    private void Start()
+    {
+        transform.localScale = new Vector2(flashSize, flashSize);
+    }
 
     private void Update()
     {
-        while (length <= 100)
+        if (flikering == true)
         {
-            float size = Random.Range(0.9f, 1) * flashSize;
-            transform.localScale = new Vector3(size, size, 0);
-            length++;
-        }
+            while (length <= 100)
+            {
+                float size = Random.Range(0.9f, 1) * flashSize;
+                transform.localScale = new Vector2(size, size);
+                length++;
+            }
 
-        length = 0;
+            length = 0;
+        }
     }
 }
