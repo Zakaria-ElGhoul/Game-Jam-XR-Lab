@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using System;
 
 public class DialogueSystem : MonoSingleton<DialogueSystem>
 {
@@ -13,6 +14,7 @@ public class DialogueSystem : MonoSingleton<DialogueSystem>
 	[Header("Variables")]
 	public float scrollSpeed;
 	public float fadeDuration;
+	public GameObject Button;
 	private Queue<string> sentences;
 
 	// Use this for initialization
@@ -49,7 +51,7 @@ public class DialogueSystem : MonoSingleton<DialogueSystem>
 		StartCoroutine(TypeSentence(sentence));
 	}
 
-	IEnumerator TypeSentence(string sentence)
+	IEnumerator TypeSentence(string sentence, Action action = null)
 	{
 		dialogueText.text = "";
 		foreach (char letter in sentence.ToCharArray())
@@ -57,6 +59,7 @@ public class DialogueSystem : MonoSingleton<DialogueSystem>
 			dialogueText.text += letter;
 			yield return new WaitForSeconds(scrollSpeed);
 		}
+
 	}
 
 	void EndDialogue()
@@ -72,6 +75,7 @@ public class DialogueSystem : MonoSingleton<DialogueSystem>
         {
 			dialogueText.color = Color.Lerp(new Color(1f, 1f, 1f, 1f), new Color(1f, 1f, 1f, 0f), t);
 			t += Time.deltaTime / fadeDuration;
+			Button.SetActive(false);
 			yield return new WaitForEndOfFrame();
 		}
 	}
