@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class click : MonoBehaviour
+public class Click : MonoBehaviour
 {
     public UnityEvent OnClickActivate;
 
