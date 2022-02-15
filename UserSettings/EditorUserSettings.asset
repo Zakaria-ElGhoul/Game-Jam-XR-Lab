@@ -11,6 +11,12 @@ EditorUserSettings:
     RecentlyUsedScenePath-1:
       value: 22424703114646680e0b0227036c791c19051139131b2535232c2217e7f67a2decee22f0
       flags: 0
+<<<<<<< Updated upstream
+=======
+    RecentlyUsedScenePath-2:
+      value: 22424703114646680e0b0227036c65111d1627192f2d2835120d1825acf53a31f6fe
+      flags: 0
+>>>>>>> Stashed changes
     vcSharedLogLevel:
       value: 0d5e400f0650
       flags: 0
