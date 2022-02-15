@@ -9,11 +9,17 @@ public class UI : MonoBehaviour
 
     public void startgame()
     {
-        SceneManager.LoadScene(nextscene);
+        StartCoroutine(Wait());
     }
 
     public void QuitButton()
     {
         Application.Quit();
+    }
+
+    private IEnumerator Wait()
+    {
+        yield return new WaitForSeconds(2);
+        SceneManager.LoadScene(nextscene);
     }
 }
