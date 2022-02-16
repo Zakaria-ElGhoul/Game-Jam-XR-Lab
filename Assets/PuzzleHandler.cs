@@ -1,11 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class PuzzleHandler : MonoBehaviour
 {
     [SerializeField] private PuzzleItem[] _items;
-
+    [SerializeField] private UnityEvent randomChimpEvent;
     public bool CheckIfPuzzleIsSolved()
     {
         foreach (PuzzleItem item in _items)
@@ -18,6 +19,7 @@ public class PuzzleHandler : MonoBehaviour
                 
         }
         print("solved");
+        randomChimpEvent.Invoke();
         return true;
 
     }
